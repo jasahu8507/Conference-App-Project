@@ -1,18 +1,75 @@
-# Salesforce DX Project: Next Steps
+Conference Management App (Salesforce)
+📌 Overview
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This project is a custom Salesforce Conference Management Application built as part of a Junior Salesforce Developer Assessment. The application demonstrates advanced Salesforce concepts including custom data modeling, bulk-safe Apex trigger logic, and advanced Lightning Web Component (LWC) communication patterns.
 
-## How Do You Plan to Deploy Your Changes?
+The app allows conference administrators to manage Speakers, Sessions, and Speaker Assignments, while ensuring that speakers cannot be double-booked for overlapping sessions.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+🧩 Features
 
-## Configure Your Salesforce DX Project
+Custom Salesforce data model for conference management
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+Conflict detection using bulk-safe Apex triggers
 
-## Read All About It
+Advanced LWC parent–child communication
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Real-time speaker availability checking
+
+User-friendly Lightning App Page
+
+Optional calendar-based availability visualization
+
+🗂 Data Model
+1️⃣ Speaker__c
+
+Stores information about conference speakers.
+
+Fields:
+
+Name (Standard)
+
+Email__c (Email)
+
+Bio__c (Long Text Area)
+
+Speciality__c (Picklist)
+
+Apex
+
+LWC
+
+Integrations
+
+Architecture
+
+2️⃣ Session__c
+
+Represents conference sessions.
+
+Fields:
+
+Title__c (Text)
+
+Session_Date__c (Date)
+
+Start_Time__c (Time)
+
+End_Time__c (Time)
+
+Level__c (Picklist)
+
+Beginner
+
+Intermediate
+
+Advanced
+
+3️⃣ Speaker_Assignment__c
+
+Junction object that links Speakers to Sessions.
+
+Relationships:
+
+Master-Detail → Session__c
+
+Lookup → Speaker__c
