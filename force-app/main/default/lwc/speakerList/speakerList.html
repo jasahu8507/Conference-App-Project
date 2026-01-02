@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+    <!-- datatable for showing the speaker list-->
+    <lightning-datatable
+                key-field="Id"
+                data={speakerList}
+                columns={columns}
+                onrowaction={handleRowAction}>
+        </lightning-datatable>  
+    </lightning-card>
+</template>

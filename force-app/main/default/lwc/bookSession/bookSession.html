@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Speaker Details And Availability" icon-name='action:record'>
+        <div class=" slds-var-m-around_medium">
+            <!-- Initial State -->
+            <template if:false={speaker}>
+                <p><strong>Select a speaker</strong></p>
+            </template>
+            <template if:true={speaker}>
+                <div class="slds-p-around_medium">
+                    <h3 class="slds-text-heading_small slds-m-bottom_medium"> Speaker Details :- </h3>
+                    <p><strong>Name : </strong> {speaker.Name}</p>
+                    <p><strong>Speciality :</strong> {speaker.Speciality__c}</p>
+                    <p><strong>Bio :</strong> {speaker.Bio__c}</p>
+                </div>
+                <!-- SESSION PICKER -->
+                <div class="slds-var-m-around_medium">
+                    <lightning-combobox label="Select Session" options={sessionOptions} onchange={handleSessionChange}
+                        class="slds-m-top_medium">
+                    </lightning-combobox>
+                </div>
+                <!-- DATE INPUT -->
+                <div class="slds-var-m-around_medium">
+                    <lightning-input type="date" label="Select Session Date" class="slds-m-top_medium"
+                        onchange={handleDateChange}>
+                    </lightning-input>
+                </div>
+                <!-- CREATE ASSIGNMENT BUTTON -->
+                <template if:true={showCreateButton}>
+                    <lightning-button label="Create Assignment" variant="brand"
+                        onclick={handleBookSession}></lightning-button>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

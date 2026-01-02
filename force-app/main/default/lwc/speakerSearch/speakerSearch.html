@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Speaker Explorer" icon-name='action:new_person_account'>
+        <div class="slds-var-m-around_medium">
+        <!-- speaker name input -->
+        <lightning-input label="Speaker Name" placeholder="Enter speaker name" value={name}  class="slds-p-bottom_x-small" onchange={handleNameSearch}></lightning-input> 
+        <!-- speaker Specialty input -->
+        <lightning-combobox
+            label="Speciality"
+            options={specialityOptions}
+            onchange={handleSpecialityChange}
+            class="slds-p-bottom_small">
+        </lightning-combobox>
+        <!-- search button -->
+        <lightning-button label="Search" variant="brand" onclick={handleSearch} ></lightning-button>
+        <!-- calling child component speaker list -->
+        <c-speaker-list speaker-list={speakerList}></c-speaker-list>
+        </div>
+    </lightning-card>
+    
+</template>
